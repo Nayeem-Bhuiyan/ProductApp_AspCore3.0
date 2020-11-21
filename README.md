@@ -12,15 +12,15 @@ Sql server management studio:18.4
 
 Models:Code_First
 
-Key notes about this Project: Front End:
+Key notes about this Project: 
 
+Front End:
 
  Fully ajax based opration including insert update delete pagination and search with bootstrap modal frame.
  
  Design Part: Home page design using Bootrap4 carousel. 
  
  Back End:(AspCore3.0 c#),ViewModel,Repository pattern.
- 
  
  
  Please use sql_backup to run the project
