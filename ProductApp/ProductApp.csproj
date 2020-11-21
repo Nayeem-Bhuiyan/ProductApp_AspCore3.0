@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UserSecretsId>aspnet-ProductApp-5395F3E8-AACC-431A-9686-53DED3885056</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\DesignPic\download %2810%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2811%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2812%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2813%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2814%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2815%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2816%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2817%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2818%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2819%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2821%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2822%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2823%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2824%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2825%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2826%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2827%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %2828%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %283%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %284%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %285%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %286%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %287%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %288%29.jpg" />
+    <None Include="wwwroot\DesignPic\download %289%29.jpg" />
+    <None Include="wwwroot\DesignPic\images %282%29.jpg" />
+    <None Include="wwwroot\DesignPic\images %283%29.jpg" />
+    <None Include="wwwroot\DesignPic\images %284%29.jpg" />
+    <None Include="wwwroot\DesignPic\images %285%29.jpg" />
+    <None Include="wwwroot\DesignPic\images %286%29.jpg" />
+    <None Include="wwwroot\DesignPic\images %287%29.jpg" />
+    <None Include="wwwroot\DesignPic\images %288%29.jpg" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,151 @@
+﻿
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta id="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/ProductScript/EmployeeScript.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+
+
+
+    <h3>Employee List</h3><br />
+    <div class="row">
+
+        <button type="button" class="btn btn-primary" id="btnShowModal">
+            Add New
+        </button>&nbsp;&nbsp;&nbsp;
+
+        @*<input type="text" name="name" value="" placeholder="Enter Employee info" id="SearchText" />
+        <button type="button" class="btn btn-secondary" onclick="SearchEmployeeInfo()"> Search</button>*@
+        <button type="button" class="btn btn-success" onclick="RefreshEmployeeIndex()">
+            Refresh
+        </button>
+    </div><br />
+
+
+    <div class="row">
+
+        <table class="table table-bordered table-striped" id="tblEmployeeList">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Employee id</th>
+                    <th>Address</th>
+                    <th>Gender</th>
+                    <th>MobileNo</th>
+                    <th>Country</th>
+                    <th>District</th>
+                    <th>Thana</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="DisplayEmpList">
+            </tbody>
+        </table>
+        <ul class="pagination">
+        </ul>
+    </div>
+
+    <div class="row">
+
+        <table class="table table-bordered table-striped" style="display:none" id="tblSearchEmployee">
+            <thead>
+                <tr>
+                    <th>Employee id</th>
+                    <th>Address</th>
+                    <th>Gender</th>
+                    <th>MobileNo</th>
+                    <th>Country</th>
+                    <th>District</th>
+                    <th>Thana</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tblSearchEmpDisplay">
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="modal fade" id="EmployeeModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title" id="ModalHeadLine">Add Employee</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="text" id="EmployeeName" class="form-control" value="" placeholder="EmployeeName" />
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" id="EmployeeAddress" class="form-control" value="" placeholder="EmployeeAddress" />
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" id="EmployeeMobileNo" class="form-control" value="" placeholder="EmployeeMobileNo" />
+                        </div>
+                        <div class="col-md-3">
+                            <input type="email" id="Email" class="form-control" value="" placeholder="Email" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <select id="GenderId" class="form-control">
+                                <option value="">Select Gender</option>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                                <option value="3">Other</option>
+                            </select>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <select id="CountryId" class="form-control">
+                                <option value="" selected>Select Country</option>
+                            </select>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <select id="DistrictId" class="form-control">
+                                <option value="" selected>Select District</option>
+                            </select>
+                        </div>
+
+
+
+                        <div class="col-md-3">
+                            <select id="ThanaId" class="form-control">
+                                <option value="" selected>Select Thana</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="PostNewEmployee()" id="btnSave">Save</button>
+                    <button type="button" class="btn btn-primary" onclick="UpdatePost_Employee()" style="display:none" id="btnEditPost">Edit</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

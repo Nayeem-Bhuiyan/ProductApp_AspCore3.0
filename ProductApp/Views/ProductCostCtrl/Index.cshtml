@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta id="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container">
+
+        <h3>Product Cost List</h3><br />
+                                  <div class="row">
+                                      <button type="button" class="btn btn-primary" id="btnShowModal">
+                                          Add New
+                                      </button>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <input type="text" name="name" value="" placeholder="Search Mobile NO" id="SearchText" />
+                                      <button type="button" class="btn btn-secondary" onclick="SearchProductCostInfo()">
+                                          Search
+                                      </button>
+                                      &nbsp;&nbsp;&nbsp;
+                                      <button type="button" class="btn btn-success" onclick="RefreshProductCostDetails()">
+                                          Refresh
+                                      </button>
+                                  </div>
+        <br />
+        <div class="row" id="div_productCostDetails_Display">
+            <table class="table table-bordered table-striped" id="tbl_ProductCost">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ProductName</th>
+                        <th>BrandName</th>
+                        <th>ProductCategoryName</th>
+                        <th>ProductSize</th>
+                        <th>UnitPrice</th>
+                        <th>Quantity</th>
+                        <th>TransportCost</th>
+                        <th>Discount</th>
+                        <th>DateOfOrder</th>
+                        <th>Subtotal</th>
+                        <th>GrandTotal</th>
+                        <th>CurrentPayment</th>
+                        <th>DueAmount</th>
+                        <th>ReceivedByEmployeeName</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div class="row">
+                <ul class="pagination">
+                </ul>
+            </div>
+        </div>
+
+        <div class="row" style="display:none" id="div_Search">
+            <table class="table table-bordered table-striped" id="Search_tblCostDetail">
+                <thead>
+                    <tr>
+                        <th>ProductName</th>
+                        <th>BrandName</th>
+                        <th>ProductCategoryName</th>
+                        <th>ProductSize</th>
+                        <th>UnitPrice</th>
+                        <th>Quantity</th>
+                        <th>TransportCost</th>
+                        <th>Discount</th>
+                        <th>DateOfOrder</th>
+                        <th>Subtotal</th>
+                        <th>GrandTotal</th>
+                        <th>CurrentPayment</th>
+                        <th>DueAmount</th>
+                        <th>ReceivedByEmployeeName</th>
+                        <th>EmployeeAddress</th>
+                        <th>employeeMobileNo</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="DisplaySearchResult">
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="ProductCostModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title" id="ModalHeadLine">Add Product Cost</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <select id="ProductId" class="form-control">
+                                <option value="">Select Product</option>
+
+                            </select>
+
+                        </div>
+                        <div class="col-md-4">
+                            <select id="BrandId" class="form-control">
+                                <option value="">Select Brand</option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select id="ProductCategoryId" class="form-control">
+
+                                <option value="">Select ProductCategory</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="text" id="ProductSize" class="form-control" value="" placeholder="ProductSize" />
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" id="UnitPrice" class="form-control" value="" placeholder="UnitPrice" />
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" id="Quantity" class="form-control" value="" placeholder="Quantity" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="text" id="TransportCost" class="form-control" value="" placeholder="TransportCost" />
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" id="Discount" class="form-control" value="" placeholder="Discount" />
+                        </div>
+                        <div class="col-md-4">
+                            <input type="datetime" id="DateOfOrder" class="form-control" value="" placeholder="DateOfOrder" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="text" id="Subtotal" class="form-control" value="" placeholder="Subtotal" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <input type="text" id="GrandTotal" class="form-control" value="" placeholder="GrandTotal" />
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" id="CurrentPayment" class="form-control" value="" placeholder="CurrentPayment" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" id="DueAmount" class="form-control" value="" placeholder="DueAmount" />
+                        </div>
+
+                        <div class="col-md-6">
+                            <select id="EmployeeId" class="form-control">
+                                <option value="">Select ReceivedByEmployee</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="PostNewProductCost()" id="btnSave">Save</button>
+                    <button type="button" class="btn btn-primary" onclick="PostUpdateProductCostInfo()" style="display:none" id="btnEditPost">Edit</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="~/ProductScript/ProductCostScript.js"></script>
+</body>
+</html>

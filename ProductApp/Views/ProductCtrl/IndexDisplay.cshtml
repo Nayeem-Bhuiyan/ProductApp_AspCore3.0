@@ -1,0 +1,150 @@
+﻿@model IEnumerable<ProductApp.ViewModel.VmProduct_Brand_Category>
+
+
+@{
+    ViewData["Title"] = "IndexDisplay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta id="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h1>Product List</h1><br />
+        <button type="button" class="btn btn-primary" id="btnShowModal">
+            Add New
+        </button>
+        <br />
+        <br />
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        Product Name
+                    </th>
+                    <th>
+                        Product Picture
+                    </th>
+                    <th>
+                        Brand Name
+                    </th>
+                    <th>
+                        Product CategoryName
+                    </th>
+
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </td>
+                        <td>
+                            <img src="~/@item.ProductPicturePath" width="60" height="70" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BrandName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductCategoryName)
+                        </td>
+                        <td>
+                            @*<button type="button" class="btn btn-success" onclick="GetEditData(@item.ProductId)">Edit</button> |*@
+                            <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-warning">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-danger">Delete</a>|
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Create Modal -->
+        <div class="modal fade" id="ProductBrandModal">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="ModalHeadLine">Add Product Brand Category</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+
+                        <form method="post" enctype="multipart/form-data" asp-controller="Product" asp-action="PostProductBandCategory" id="frmProductBrandCategory">
+                            <input type="text" name="ProductName" value="" id="ProductName" placeholder="Enter ProductName" class="form-control" /><br />
+                            <input type="text" name="BrandName" value="" id="BrandName" placeholder="Enter BrandName" class="form-control" /><br />
+                            <input type="text" name="ProductCategoryName" value="" id="ProductCategoryName" placeholder="Enter ProductCategoryName" class="form-control" /><br />
+                            <input type="file" name="ProductImage" value="" id="ProductImage" placeholder="Select File" class="form-control" /><br />
+
+                        </form>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" onclick="AddProductBrandCategory()">Save</button>
+                        <button type="button" class="btn btn-primary" onclick="EditPost_ProductBrandCategory()" style="display:none" id="btnEditPost">Edit</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Edit Modal -->
+        <div class="modal fade" id="EditProductBrandModal">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="ModalHeadLine">Edit Product Brand Category</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+
+                        <form method="post" enctype="multipart/form-data" asp-controller="Product" asp-action="PostProductBandCategory" id="frmProductBrandCategory">
+                            <input type="text" name="BrandName" value="" id="BrandName" placeholder="Enter BrandName" class="form-control" /><br />
+                            <select id="ProductCategoryId" class="form-control">
+                                <option value="0">Select ProductCategory</option>
+                            </select>
+                            <select id="BrandId" class="form-control">
+                                <option value="0">Select Brand</option>
+                            </select><br />
+                            <input type="file" name="ProductImage" value="" id="ProductImage" placeholder="Select File" class="form-control" /><br />
+
+                        </form>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="EditPost_ProductBrandCategory()" style="display:none" id="btnEditPost">Edit</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="~/ProductScript/ProductBrandCategoryScript.js"></script>
+</body>
+</html>
