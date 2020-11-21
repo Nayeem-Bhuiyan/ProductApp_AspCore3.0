@@ -6,7 +6,9 @@ Asp Core3.0 ,
 
 Entity frameworkcore3.1.8 ,
 
-Dot NetFramework:4.7 ,Visual studio:2019 
+Dot NetFramework:4.7 ,
+
+Visual studio:2019 
 
 Sql server management studio:18.4
 
